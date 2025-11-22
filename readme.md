@@ -14,6 +14,19 @@
 - **対話型UI**: Gradioによるチャットインターフェース
 - **定期更新**: Airflowによる自動パイプライン
 
+## ■ システム構成図
+
+```mermaid
+graph TD
+    A[国会議事録API] -->|Airflow: 定期取得| B(データ処理)
+    B -->|Embedding: 定期取得| C[Chroma DB]
+    User -->|質問| D[Gradio UI]
+    D -->|検索| C
+    C -->|高市氏発言関連文書情報| E["LLM (GPT-4o)"]
+    E -->|回答| D
+    D -->|回答表示| User
+```
+
 ## ■ 構成
 ```
 rag-demo/
