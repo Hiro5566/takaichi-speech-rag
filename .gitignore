@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.env
+bak/
+chroma_db/
+.vscode/
+.venv/
+diet_speeches.jsonl
+fetch_state.json
+fetched_ids.txt
+

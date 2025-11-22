@@ -1,0 +1,22 @@
+# Dockerfile.airflow
+FROM apache/airflow:2.7.0-python3.10
+
+USER root
+
+# SQLite を最新版にアップグレード
+RUN apt-get update && apt-get install -y wget build-essential && \
+    wget https://www.sqlite.org/2024/sqlite-autoconf-3450000.tar.gz && \
+    tar xzf sqlite-autoconf-3450000.tar.gz && \
+    cd sqlite-autoconf-3450000 && \
+    ./configure --prefix=/usr/local && \
+    make && make install && \
+    cd .. && rm -rf sqlite-autoconf-3450000* && \
+    rm -rf /var/lib/apt/lists/*
+
+# 新しい SQLite を優先的に使用
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+USER airflow
+
+COPY requirements.lock .
+RUN pip install --no-cache-dir -r requirements.lock
