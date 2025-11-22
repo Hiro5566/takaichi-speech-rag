@@ -1,4 +1,4 @@
-# 🤖 高市早苗 国会発言検索チャットボット
+# 高市早苗 国会発言検索チャットボット
 
 国会議事録APIから発言データを取得し、RAG（Retrieval-Augmented Generation）で高市早苗氏の発言を検索できるチャットボットです。
 
@@ -6,7 +6,7 @@
 ![LangChain](https://img.shields.io/badge/LangChain-latest-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## 🎯 機能
+## ■ 機能
 
 - **国会議事録API連携**: 2023年以降の本会議・予算委員会・総務委員会の発言を自動取得
 - **差分更新**: 取得済みデータとの重複を避けて効率的に更新
@@ -14,7 +14,7 @@
 - **対話型UI**: Gradioによるチャットインターフェース
 - **定期更新**: Airflowによる自動パイプライン
 
-## 📁 構成
+## ■ 構成
 ```
 rag-demo/
 ├── dags/                        # Airflow DAG
@@ -35,7 +35,7 @@ rag-demo/
 └── requirements.lock            # バージョン固定
 ```
 
-## 🚀 セットアップ
+## ■ セットアップ
 
 ### 1. リポジトリをクローン
 ```bash
@@ -76,7 +76,7 @@ python -m src.get_diet_speeches
 python -m src.update_vectorstore
 ```
 
-## 💻 起動方法
+## ■ 起動方法
 
 ### ローカル実行
 
@@ -102,7 +102,7 @@ docker-compose up -d
 | Gradio UI | http://localhost:7860 | なし |
 | Airflow | http://localhost:8080 | admin / admin |
 
-## 🔄 Airflow パイプライン
+## ■ Airflow設定
 
 毎日自動で以下のタスクを実行：
 
@@ -111,9 +111,9 @@ docker-compose up -d
 
 スケジュール: 毎日 11:08 JST（UTC 02:08）
 
-## 🛠 技術スタック
+## ■ 利用アプリケーション
 
-| カテゴリ | 技術 |
+| カテゴリ | アプリケーション |
 |---------|------|
 | LLM | OpenAI GPT-4o-mini |
 | Embedding | intfloat/multilingual-e5-small |
@@ -124,13 +124,13 @@ docker-compose up -d
 | Orchestration | Apache Airflow |
 | Container | Docker |
 
-## 📝 API使用例
+## ■ API使用例
 ```bash
 curl -X POST http://localhost:8000/ask \
   -H "Content-Type: application/json" \
   -d '{"question": "安全保障について", "top_k": 10}'
 ```
 
-## 📄 ライセンス
+## ■ ライセンス
 
 MIT License
