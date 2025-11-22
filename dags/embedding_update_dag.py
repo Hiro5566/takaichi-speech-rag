@@ -19,8 +19,6 @@ default_args = {
 }
 
 # スケジュール:
-#   ここでは「毎日 3:00 (UTC)」= 日本時間 12:00 相当
-#   好きな cron に変えてOK
 with DAG(
     dag_id="embedding_update_dag",
     default_args=default_args,
