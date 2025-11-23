@@ -14,6 +14,11 @@
 - **対話型UI**: Gradioによるチャットインターフェース
 - **定期更新**: Airflowによる自動パイプライン
 
+## ■ Live Demo
+
+**デモサイト**: <a href="https://takaichi-speech-rag.fly.dev/" target="_blank">https://takaichi-speech-rag.fly.dev/</a> <br>
+>　※アイドル状態からの初回アクセス時は、アプリの起動に約30秒程度かかります。しばらくお待ちください。
+
 ## ■ システム構成図
 
 ```mermaid
